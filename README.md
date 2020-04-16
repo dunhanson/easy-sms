@@ -32,13 +32,52 @@ aliyun:
 
 ## Maven
 
+依赖配置
+
 ``仅限公司内部项目配置生效``
 
 ```xml
 <dependency>
     <groupId>site.dunhanson.aliyun</groupId>
-    <artifactId>easy-tablestore</artifactId>
-    <version>2020.0326.1548</version>
+    <artifactId>easy-sms</artifactId>
+    <version>2020.0416.1658</version>
+</dependency>
+```
+
+关联依赖
+
+```xml
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.7.30</version>
+</dependency>
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-log4j12</artifactId>
+    <version>1.7.30</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.yaml</groupId>
+    <artifactId>snakeyaml</artifactId>
+    <version>1.26</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>3.9</version>
+</dependency>
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.12</version>
+    <scope>provided</scope>
+</dependency>
+<dependency>
+    <groupId>com.aliyun</groupId>
+    <artifactId>aliyun-java-sdk-core</artifactId>
+    <version>4.5.1</version>
 </dependency>
 ```
 
