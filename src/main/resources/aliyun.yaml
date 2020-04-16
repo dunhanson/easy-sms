@@ -1,0 +1,7 @@
+aliyun:
+  sms:
+    regionId: cn-hangzhou
+    accessKeyId: '******'
+    accessSecret: '******'
+    domain: dysmsapi.aliyuncs.com
+    version: "2017-05-25"
