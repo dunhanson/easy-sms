@@ -79,6 +79,12 @@ easySms:
 
 ```xml
 <dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
     <groupId>org.slf4j</groupId>
     <artifactId>slf4j-api</artifactId>
     <version>1.7.30</version>
@@ -110,8 +116,15 @@ easySms:
     <artifactId>aliyun-java-sdk-core</artifactId>
     <version>4.5.1</version>
 </dependency>
+<dependency>
+    <groupId>com.tencentcloudapi</groupId>
+    <artifactId>tencentcloud-sdk-java</artifactId>
+    <version>3.1.49</version>
+</dependency>
 ```
 
 ## 参考资料
 
-[阿里云-短信服务-API参考](https://help.aliyun.com/document_detail/101300.html)
+[阿里云-短信SDK](https://help.aliyun.com/document_detail/101300.html)
+
+[腾讯云-短信SDK](https://cloud.tencent.com/document/product/382/43194)
