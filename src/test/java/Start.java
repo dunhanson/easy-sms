@@ -20,8 +20,11 @@ public class Start {
     public void aliYun() {
         // 签名
         String signName = "比地招标";
-        String phoneNumbers = "134****1690";
-        String templateCode = "SMS_******";
+        // 手机号码
+        String phoneNumbers = "13430741690";
+        // 短信模板
+        String templateCode = "SMS_63130288";
+        // 短信模板
         String templateParam = "{\"code\":\"789456\"}";
         // 发送短信
         SmsResponse smsResponse = AliYunSmsUtils.sendSms(signName, phoneNumbers, templateCode, templateParam);
