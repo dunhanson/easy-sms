@@ -1,7 +1,18 @@
-aliYun:
-  sms:
+easySms:
+  aliYun:
     regionId: cn-hangzhou
     accessKeyId: '******'
     accessSecret: '******'
     domain: dysmsapi.aliyuncs.com
     version: "2017-05-25"
+  tenCent:
+    endpoint: sms.tencentcloudapi.com
+    region:
+    secretId: '******'
+    secretKey: '******'
+    appIds:
+      - '******'
+    templateIds:
+      - '******'
+    signs:
+      - '******'

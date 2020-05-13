@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * @author dunhanson
  * @date 2020.04.16
- * @description 短信基本信息
+ * @description 阿里云-短信基本信息
  */
 @Data
 public class AliYunBasicInfo {

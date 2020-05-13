@@ -10,20 +10,20 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import lombok.extern.slf4j.Slf4j;
 import site.dunhanson.aliyun.sms.entity.AliYunBasicInfo;
-import site.dunhanson.aliyun.sms.entity.Result;
+import site.dunhanson.aliyun.sms.entity.SmsResponse;
 import java.lang.reflect.Type;
 import java.util.Map;
 
 /**
  * @author dunhanson
  * @date 2020.04.16
- * @description 短信工具类
+ * @description 阿里云-短信工具类
  */
 @Slf4j
 public class AliYunSmsUtils {
-    private static final String path = "easy-sms.yaml";
-    private static final String[] keyArr = new String[]{"aliYun", "sms"};
-    private static final AliYunBasicInfo ALI_YUN_BASIC_INFO = YamlUtils.getEntity(AliYunBasicInfo.class, path, keyArr);
+    public static final String path = "easy-sms.yaml";
+    public static final String[] keyArr = new String[]{"easySms", "aliYun"};
+    public static final AliYunBasicInfo aliYunBasicInfo = YamlUtils.getEntity(AliYunBasicInfo.class, path, keyArr);
     private static final IAcsClient iAcsClient = getIAcsClient();
 
     /**
@@ -32,9 +32,9 @@ public class AliYunSmsUtils {
      */
     public static IAcsClient getIAcsClient() {
         DefaultProfile profile = DefaultProfile.getProfile(
-                ALI_YUN_BASIC_INFO.getRegionId(),
-                ALI_YUN_BASIC_INFO.getAccessKeyId(),
-                ALI_YUN_BASIC_INFO.getAccessSecret());
+                aliYunBasicInfo.getRegionId(),
+                aliYunBasicInfo.getAccessKeyId(),
+                aliYunBasicInfo.getAccessSecret());
         return new DefaultAcsClient(profile);
     }
 
@@ -62,12 +62,11 @@ public class AliYunSmsUtils {
      * @param templateParam 模板内容
      * @return
      */
-    public static CommonResponse sendSms(String signName, String phoneNumbers, String templateCode,
-                                         String templateParam) {
+    public static CommonResponse send(String signName, String phoneNumbers, String templateCode, String templateParam) {
         CommonRequest request = new CommonRequest();
         request.setSysMethod(MethodType.POST);
-        request.setSysDomain(ALI_YUN_BASIC_INFO.getDomain());
-        request.setSysVersion(ALI_YUN_BASIC_INFO.getVersion());
+        request.setSysDomain(aliYunBasicInfo.getDomain());
+        request.setSysVersion(aliYunBasicInfo.getVersion());
         request.setSysAction("SendSms");
         request.putQueryParameter("SignName", signName);
         request.putQueryParameter("PhoneNumbers", phoneNumbers);
@@ -84,18 +83,17 @@ public class AliYunSmsUtils {
      * @param templateParam 模板内容
      * @return
      */
-    public static Result sendSmsGetResult(String signName, String phoneNumbers, String templateCode,
-                                          String templateParam) {
-        CommonResponse response = sendSms(signName, phoneNumbers, templateCode, templateParam);
+    public static SmsResponse sendSms(String signName, String phoneNumbers, String templateCode, String templateParam) {
+        CommonResponse response = send(signName, phoneNumbers, templateCode, templateParam);
         String json = response.getData();
         Type type = new TypeToken<Map<String, String>>(){}.getType();
         Map<String, String> map = new Gson().fromJson(json, type);
         String message = map.get("Message");
         String code = map.get("Code");
         if(code.equals("OK")) {
-            return new Result(Boolean.TRUE, code, message);
+            return new SmsResponse(Boolean.TRUE, code, message);
         };
-        return new Result(Boolean.FALSE, code, message);
+        return new SmsResponse(Boolean.FALSE, code, message);
     }
 
 }
