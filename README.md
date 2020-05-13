@@ -69,9 +69,9 @@ easySms:
 
 ```xml
 <dependency>
-    <groupId>site.dunhanson.aliyun</groupId>
+    <groupId>site.dunhanson.easy</groupId>
     <artifactId>easy-sms</artifactId>
-    <version>2020.0513.1355</version>
+    <version>2020.0513.1401</version>
 </dependency>
 ```
 

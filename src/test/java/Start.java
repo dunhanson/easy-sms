@@ -1,7 +1,7 @@
 import org.junit.Test;
-import site.dunhanson.aliyun.sms.entity.SmsResponse;
-import site.dunhanson.aliyun.sms.utils.AliYunSmsUtils;
-import site.dunhanson.aliyun.sms.utils.TenCentSmsUtils;
+import site.dunhanson.easy.sms.entity.SmsResponse;
+import site.dunhanson.easy.sms.utils.AliYunSmsUtils;
+import site.dunhanson.easy.sms.utils.TenCentSmsUtils;
 
 public class Start {
 

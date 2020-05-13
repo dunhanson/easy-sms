@@ -1,4 +1,4 @@
-package site.dunhanson.aliyun.sms.utils;
+package site.dunhanson.easy.sms.utils;
 
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
@@ -9,8 +9,8 @@ import com.tencentcloudapi.sms.v20190711.models.SendSmsRequest;
 import com.tencentcloudapi.sms.v20190711.models.SendSmsResponse;
 import com.tencentcloudapi.sms.v20190711.models.SendStatus;
 import lombok.extern.slf4j.Slf4j;
-import site.dunhanson.aliyun.sms.entity.SmsResponse;
-import site.dunhanson.aliyun.sms.entity.TenCentBasicInfo;
+import site.dunhanson.easy.sms.entity.SmsResponse;
+import site.dunhanson.easy.sms.entity.TenCentBasicInfo;
 import java.util.ArrayList;
 import java.util.List;
 

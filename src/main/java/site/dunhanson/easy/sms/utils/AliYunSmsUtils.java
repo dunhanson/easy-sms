@@ -1,4 +1,4 @@
-package site.dunhanson.aliyun.sms.utils;
+package site.dunhanson.easy.sms.utils;
 
 import com.aliyuncs.CommonRequest;
 import com.aliyuncs.CommonResponse;
@@ -9,8 +9,8 @@ import com.aliyuncs.profile.DefaultProfile;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import lombok.extern.slf4j.Slf4j;
-import site.dunhanson.aliyun.sms.entity.AliYunBasicInfo;
-import site.dunhanson.aliyun.sms.entity.SmsResponse;
+import site.dunhanson.easy.sms.entity.AliYunBasicInfo;
+import site.dunhanson.easy.sms.entity.SmsResponse;
 import java.lang.reflect.Type;
 import java.util.Map;
 

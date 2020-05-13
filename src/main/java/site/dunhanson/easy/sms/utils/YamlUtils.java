@@ -1,4 +1,4 @@
-package site.dunhanson.aliyun.sms.utils;
+package site.dunhanson.easy.sms.utils;
 
 import com.google.gson.Gson;
 import org.yaml.snakeyaml.Yaml;

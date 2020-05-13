@@ -1,4 +1,4 @@
-package site.dunhanson.aliyun.sms.entity;
+package site.dunhanson.easy.sms.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
