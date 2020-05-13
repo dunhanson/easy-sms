@@ -1,18 +1,7 @@
-import com.tencentcloudapi.common.Credential;
-import com.tencentcloudapi.common.exception.TencentCloudSDKException;
-import com.tencentcloudapi.common.profile.ClientProfile;
-import com.tencentcloudapi.common.profile.HttpProfile;
-import com.tencentcloudapi.sms.v20190711.SmsClient;
-import com.tencentcloudapi.sms.v20190711.models.SendSmsRequest;
-import com.tencentcloudapi.sms.v20190711.models.SendSmsResponse;
 import org.junit.Test;
 import site.dunhanson.aliyun.sms.entity.SmsResponse;
-import site.dunhanson.aliyun.sms.entity.TenCentBasicInfo;
 import site.dunhanson.aliyun.sms.utils.AliYunSmsUtils;
 import site.dunhanson.aliyun.sms.utils.TenCentSmsUtils;
-import site.dunhanson.aliyun.sms.utils.YamlUtils;
-
-import java.util.List;
 
 public class Start {
 
