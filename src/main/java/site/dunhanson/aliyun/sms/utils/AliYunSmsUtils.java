@@ -9,7 +9,7 @@ import com.aliyuncs.profile.DefaultProfile;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import lombok.extern.slf4j.Slf4j;
-import site.dunhanson.aliyun.sms.entity.BasicInfo;
+import site.dunhanson.aliyun.sms.entity.AliYunBasicInfo;
 import site.dunhanson.aliyun.sms.entity.Result;
 import java.lang.reflect.Type;
 import java.util.Map;
@@ -20,10 +20,10 @@ import java.util.Map;
  * @description 短信工具类
  */
 @Slf4j
-public class SmsUtils {
-    private static final String path = "aliyun.yaml";
-    private static final String[] keyArr = new String[]{"aliyun", "sms"};
-    private static final BasicInfo basicInfo = YamlUtils.getEntity(BasicInfo.class, path, keyArr);
+public class AliYunSmsUtils {
+    private static final String path = "easy-sms.yaml";
+    private static final String[] keyArr = new String[]{"aliYun", "sms"};
+    private static final AliYunBasicInfo ALI_YUN_BASIC_INFO = YamlUtils.getEntity(AliYunBasicInfo.class, path, keyArr);
     private static final IAcsClient iAcsClient = getIAcsClient();
 
     /**
@@ -32,9 +32,9 @@ public class SmsUtils {
      */
     public static IAcsClient getIAcsClient() {
         DefaultProfile profile = DefaultProfile.getProfile(
-                basicInfo.getRegionId(),
-                basicInfo.getAccessKeyId(),
-                basicInfo.getAccessSecret());
+                ALI_YUN_BASIC_INFO.getRegionId(),
+                ALI_YUN_BASIC_INFO.getAccessKeyId(),
+                ALI_YUN_BASIC_INFO.getAccessSecret());
         return new DefaultAcsClient(profile);
     }
 
@@ -66,8 +66,8 @@ public class SmsUtils {
                                          String templateParam) {
         CommonRequest request = new CommonRequest();
         request.setSysMethod(MethodType.POST);
-        request.setSysDomain(basicInfo.getDomain());
-        request.setSysVersion(basicInfo.getVersion());
+        request.setSysDomain(ALI_YUN_BASIC_INFO.getDomain());
+        request.setSysVersion(ALI_YUN_BASIC_INFO.getVersion());
         request.setSysAction("SendSms");
         request.putQueryParameter("SignName", signName);
         request.putQueryParameter("PhoneNumbers", phoneNumbers);

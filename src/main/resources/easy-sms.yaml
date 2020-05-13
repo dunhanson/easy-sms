@@ -1,4 +1,4 @@
-aliyun:
+aliYun:
   sms:
     regionId: cn-hangzhou
     accessKeyId: '******'

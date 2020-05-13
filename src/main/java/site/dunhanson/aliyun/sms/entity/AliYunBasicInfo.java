@@ -8,7 +8,7 @@ import lombok.Data;
  * @description 短信基本信息
  */
 @Data
-public class BasicInfo {
+public class AliYunBasicInfo {
     /**regionId**/
     private String regionId;
     /**accessKeyId**/
