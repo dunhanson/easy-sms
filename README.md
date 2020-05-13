@@ -6,28 +6,59 @@
 
 ```java
     @Test
-    public void start() {
+    public void aliYun() {
+        // 签名
         String signName = "比地招标";
-        String phoneNumbers = "134****1690";
-        String templateCode = "SMS_******";
+        // 手机号码
+        String phoneNumbers = "13430741690";
+        // 短信模板
+        String templateCode = "SMS_63130288";
+        // 短信模板
         String templateParam = "{\"code\":\"789456\"}";
-        Result result = SmsUtils.sendSmsGetResult(signName, phoneNumbers, templateCode, templateParam);
-        System.out.println(result);
+        // 发送短信
+        SmsResponse smsResponse = AliYunSmsUtils.sendSms(signName, phoneNumbers, templateCode, templateParam);
+        // 打印结果
+        System.out.println(smsResponse);
+    }
+
+    @Test
+    public void tenCentSingle() {
+        // 模板的索引
+        int templateIdIndex = 0;
+        // 下发手机号码，采用 e.164 标准，+[国家或地区码][手机号]
+        String phoneNumber = "+8613650933659";
+        // 模板参数
+        String templateParam = "123456";
+        // 发送短信
+        SmsResponse smsResponse = TenCentSmsUtils.sendSms(templateIdIndex, phoneNumber, templateParam);
+        // 打印结果
+        System.out.println(smsResponse);
     }
 ```
 
 ## 配置文件
 
-aliyun.yaml
+easy-sms.yaml
 
 ```yaml
-aliyun:
-  sms:
+easySms:
+  aliYun:
     regionId: cn-hangzhou
-    accessKeyId: ******
-    accessSecret: ******
+    accessKeyId: '******'
+    accessSecret: '******'
     domain: dysmsapi.aliyuncs.com
     version: "2017-05-25"
+  tenCent:
+    endpoint: sms.tencentcloudapi.com
+    region:
+    secretId: '******'
+    secretKey: '******'
+    appIds:
+      - '******'
+    templateIds:
+      - '******'
+    signs:
+      - '******'
 ```
 
 ## Maven
@@ -40,7 +71,7 @@ aliyun:
 <dependency>
     <groupId>site.dunhanson.aliyun</groupId>
     <artifactId>easy-sms</artifactId>
-    <version>2020.0416.1658</version>
+    <version>2020.0513.1355</version>
 </dependency>
 ```
 
